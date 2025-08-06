@@ -15,6 +15,24 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
+// Simple authentication middleware
+const authenticate = (req, res, next) => {
+  const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
+  const providedPassword = req.headers['x-admin-password'] || req.query.password;
+  
+  if (req.path === '/' || req.path === '/login.html') {
+    return next();
+  }
+  
+  if (providedPassword !== adminPassword) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
+  
+  next();
+};
+
+app.use('/api', authenticate);
+
 // API Routes
 app.get('/api/journalists', async (req, res) => {
   try {

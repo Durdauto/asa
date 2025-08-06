@@ -8,6 +8,7 @@
     "start": "node src/bot.js",
     "dev": "node --watch src/bot.js",
     "web": "node src/web-server.js",
+    "laptop": "npm run setup && npm run web",
     "setup": "npx puppeteer browsers install chrome",
     "install-ubuntu": "chmod +x install-ubuntu.sh && ./install-ubuntu.sh"
   },

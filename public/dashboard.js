@@ -1,5 +1,11 @@
 let journalists = [];
 let currentEditingUsername = null;
+const adminPassword = localStorage.getItem('adminPassword');
+
+// Check authentication
+if (!adminPassword) {
+    window.location.href = '/login.html';
+}
 
 // Initialize dashboard
 document.addEventListener('DOMContentLoaded', () => {
@@ -44,7 +50,9 @@ function showTab(tabName) {
 // Load journalists from API
 async function loadJournalists() {
     try {
-        const response = await fetch('/api/journalists');
+        const response = await fetch('/api/journalists', {
+            headers: { 'X-Admin-Password': adminPassword }
+        });
         journalists = await response.json();
         renderJournalists();
         updateStats();
@@ -180,13 +188,19 @@ async function handleFormSubmit(e) {
         if (currentEditingUsername) {
             response = await fetch(`/api/journalists/${currentEditingUsername}`, {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'X-Admin-Password': adminPassword
+                },
                 body: JSON.stringify(formData)
             });
         } else {
             response = await fetch('/api/journalists', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'X-Admin-Password': adminPassword
+                },
                 body: JSON.stringify(formData)
             });
         }
@@ -209,7 +223,8 @@ async function deleteJournalist(username) {
     
     try {
         const response = await fetch(`/api/journalists/${username}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: { 'X-Admin-Password': adminPassword }
         });
         
         if (response.ok) {
@@ -226,7 +241,9 @@ async function deleteJournalist(username) {
 // Load logs
 async function loadLogs() {
     try {
-        const response = await fetch('/api/logs');
+        const response = await fetch('/api/logs', {
+            headers: { 'X-Admin-Password': adminPassword }
+        });
         const logs = await response.json();
         renderLogs(logs);
     } catch (error) {
