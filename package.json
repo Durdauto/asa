@@ -1,0 +1,27 @@
+{
+  "name": "football-twitter-bot",
+  "version": "1.0.0",
+  "description": "Twitter bot for monitoring football journalists and reposting with reliability scores",
+  "main": "src/bot.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/bot.js",
+    "dev": "node --watch src/bot.js",
+    "web": "node src/web-server.js",
+    "setup": "npx puppeteer browsers install chrome",
+    "install-ubuntu": "chmod +x install-ubuntu.sh && ./install-ubuntu.sh"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "puppeteer": "^21.5.2",
+    "axios": "^1.6.2",
+    "cheerio": "^1.0.0-rc.12",
+    "node-cron": "^3.0.3",
+    "winston": "^3.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

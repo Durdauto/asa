@@ -1,0 +1,76 @@
+{
+  "journalists": [
+    {
+      "username": "FabrizioRomano",
+      "displayName": "Fabrizio Romano",
+      "reliability": 99.9,
+      "tier": "🟢",
+      "specialPhrases": [
+        "HERE WE GO",
+        "here we go"
+      ],
+      "active": true
+    },
+    {
+      "username": "David_Ornstein",
+      "displayName": "David Ornstein",
+      "reliability": 99.5,
+      "tier": "🟢",
+      "specialPhrases": [
+        "HERE WE GO",
+        "here we go"
+      ],
+      "active": true
+    },
+    {
+      "username": "DiMarzio",
+      "displayName": "Gianluca Di Marzio",
+      "reliability": 85,
+      "tier": "🟢",
+      "specialPhrases": [],
+      "active": true
+    },
+    {
+      "username": "SkySportsNews",
+      "displayName": "Sky Sports News",
+      "reliability": 65,
+      "tier": "🟡",
+      "specialPhrases": [],
+      "active": true
+    },
+    {
+      "username": "talkSPORT",
+      "displayName": "talkSPORT",
+      "reliability": 35,
+      "tier": "🟠",
+      "specialPhrases": [],
+      "active": true
+    },
+    {
+      "username": "TheSun",
+      "displayName": "The Sun",
+      "reliability": 20,
+      "tier": "🔴",
+      "specialPhrases": [],
+      "active": true
+    },
+    {
+      "id": "1754319046923",
+      "username": "BenJacobs",
+      "displayName": "BenJacobs",
+      "reliability": 73,
+      "tier": "🟡",
+      "active": true,
+      "specialPhrases": []
+    },
+    {
+      "id": "1754319309593",
+      "username": "duautod ",
+      "displayName": "duautod ",
+      "reliability": 1,
+      "tier": "🔴",
+      "active": true,
+      "specialPhrases": []
+    }
+  ]
+}
