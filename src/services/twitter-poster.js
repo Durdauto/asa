@@ -12,6 +12,7 @@ class TwitterPoster {
     try {
       this.browser = await puppeteer.launch({
         headless: true, // Always headless on VPS
+        executablePath: puppeteer.executablePath(),
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',

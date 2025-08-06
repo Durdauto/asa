@@ -11,6 +11,7 @@ class TwitterScraper {
     try {
       this.browser = await puppeteer.launch({
         headless: true,
+        executablePath: puppeteer.executablePath(),
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
